@@ -18,8 +18,11 @@ from django.urls import path, include
 
 from human.views import *
 
+handler404 = pageNotFound
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('human/', include('human.urls')),
-
+    path('', include('human.urls')),
+    path('', RedirecToMain),
 ]
+
