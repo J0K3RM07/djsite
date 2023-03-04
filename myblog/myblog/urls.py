@@ -20,7 +20,7 @@ from django.urls import path, include
 from human.views import *
 from myblog import settings
 
-handler404 = pageNotFound
+handler404 = ''
 
 urlpatterns = [
     path('admin/', admin.site.urls),

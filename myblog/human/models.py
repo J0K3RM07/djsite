@@ -1,14 +1,18 @@
 from django.db import models
 
-class students(models.Model):
-    id = models.CharField(max_length=30, primary_key=True)
-    name = models.CharField(max_length=15)
-    surname = models.CharField(max_length=15)
-    patronymic = models.CharField(max_length=15)
+class article(models.Model):
+    title = models.CharField(max_length=50)
     content = models.TextField()
-    group = models.SlugField(allow_unicode=True)
-    telephone = models.IntegerField(unique=True)
+    date = models.DateField()
 
+
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
 
 
 
