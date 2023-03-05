@@ -4,32 +4,36 @@
     padding: 0px;
     border: 0px;
 }
-
-img{
-    width: 5%;
-    display: inline;
-
+body{
+    background-color: #fff;
 }
-
+.text{
+    display: inline-block;
+    margin-top: 45px;
+    margin-right: 65px;
+}
+a{
+    color: black;
+}
+img{
+    height: 100px;
+    float: left;
+}
 
 header{
     font-family: 'Ubuntu', sans-serif;
-    background: aqua;
-    height: 100px;
+    height: 130px;
+    display: block;
+    text-align: center;
 }
 li{
     display: inline;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
-.hrefs{
-    background: gold;
-    display: block;
+footer{
+    text-align: center;
 }
-div{
-    background:aliceblue ;
-    display: inline-block;
-
+header>a{
+    display: inherit;
 }
-
-
