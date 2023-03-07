@@ -3,5 +3,20 @@
 {%block title%}Статьи{%endblock%}
 
 {%block content%}
-    <p>Какая то статья</p>
+    <h1 id="articleH">Новости</h1>
+    {%if art%}
+        {%for el in art%}
+            <div class="indent">
+                <div class="article_color">
+                    <span class="article">
+                        <h2>{{el.title}}</h2>
+                        <p>{{el.anons}}</p>
+                        <a href="{%url 'artID' el.id%}" class="btn btn-dark">Открыть полностью</a>
+                    </span>
+                </div>
+            </div>
+        {%endfor%}
+    {%else%}
+        <h2>Нет новостей</h2>
+    {%endif%}
 {%endblock%}
