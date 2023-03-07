@@ -3,9 +3,12 @@
     margin: 0px;
     padding: 0px;
 }
-
+.foot_ul{
+    display: inline;
+    margin-right: 70px;
+}
 .hrefs{
-    padding-left: 310px;
+    padding-left: 420px;
 }
 body{
     background-color: #fff;
