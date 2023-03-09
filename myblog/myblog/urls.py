@@ -25,7 +25,8 @@ handler404 = ''
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('human.urls')),
-    path('article/', include('article.urls'))
+    path('article/', include('article.urls')),
+    path('auth/', include('authorization.urls'))
 ]
 
 if settings.DEBUG:

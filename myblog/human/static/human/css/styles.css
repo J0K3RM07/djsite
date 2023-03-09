@@ -3,6 +3,10 @@
     margin: 0px;
     padding: 0px;
 }
+button, input {
+    margin-top: 10px;
+}
+
 .foot_ul{
     display: inline;
     margin-right: 70px;

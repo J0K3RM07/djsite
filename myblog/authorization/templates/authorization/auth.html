@@ -1,0 +1,15 @@
+{%extends 'human/mainpage.html'%}
+
+{%block title%}Авторизация{%endblock%}
+{%block content%}
+<div class="form">
+    <h1>Регистрация</h1>
+    <form method="post">
+        {%csrf_token%}<br>
+        {{form.login}}<br>
+        {{form.password}}<br>
+        <span>{{error}}</span>
+        <button class="btn btn-success" type="submit">Нажмите чтобы зарегистрироваться</button>
+    </form>
+</div>
+{%endblock%}
