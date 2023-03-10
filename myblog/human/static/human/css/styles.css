@@ -3,9 +3,7 @@
     margin: 0px;
     padding: 0px;
 }
-button, input {
-    margin-top: 10px;
-}
+
 
 .foot_ul{
     display: inline;
@@ -21,6 +19,7 @@ body{
     display: inline-block;
     margin-top: 45px;
     margin-right: 65px;
+
 }
 a{
     color: black;
@@ -62,9 +61,9 @@ main{
     display: block;
 }
 
-form{
+.RegForm{
     display: inline-block;
-    width: 800px;
+    width: 300px;
     padding-top: 60px;
 }
 .articleH{

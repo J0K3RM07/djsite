@@ -6,11 +6,11 @@ class authForm(forms.ModelForm):
         model = Auth
         fields = ['login', 'password']
         widgets = {
-            "title": forms.TextInput(attrs={
+            "login": forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'логин'
             }),
-            "anons": forms.PasswordInput(attrs={
+            "password": forms.PasswordInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'пароль'
             })

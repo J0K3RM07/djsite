@@ -2,9 +2,9 @@
 
 {%block title%}Авторизация{%endblock%}
 {%block content%}
-<div class="form">
+<div class="RegForm">
     <h1>Регистрация</h1>
-    <form method="post">
+    <form  method="post">
         {%csrf_token%}<br>
         {{form.login}}<br>
         {{form.password}}<br>
