@@ -2,9 +2,19 @@
 *{
     margin: 0px;
     padding: 0px;
+    font-family: 'Ubuntu', sans-serif;
 }
-
-
+a, u {
+  text-decoration: none !important;
+}
+.pagination{
+    justify-content: center;
+}
+.form{
+    display: inline-block;
+    width: 700px;
+    text-align: center;
+}
 .foot_ul{
     display: inline;
     margin-right: 70px;
@@ -30,12 +40,11 @@ img{
 }
 
 header{
-    font-family: 'Ubuntu', sans-serif;
     height: 100px;
     display: block;
     text-align: center;
 }
-li{
+.headerLI{
     display: inline;
     padding-left: 30px;
     padding-right: 30px;

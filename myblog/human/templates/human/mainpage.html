@@ -1,5 +1,6 @@
-{%load static%}
+
 <!DOCTYPE html>
+{%load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,23 +14,26 @@
             <a href="{%url 'main'%}"><img src="../../static/human/images/main.ico"/></a>
         <div class="text">
             <ul class="hrefs">
-                <li><a href="{%url 'about'%}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="silver" class="bi bi-clipboard2-fill" viewBox="0 0 16 16">
+                <li class="headerLI"><a href="{%url 'about'%}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="silver" class="bi bi-clipboard2-fill" viewBox="0 0 16 16">
   <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
   <path d="M3.5 1h.585A1.498 1.498 0 0 0 4 1.5V2a1.5 1.5 0 0 0 1.5 1.5h5A1.5 1.5 0 0 0 12 2v-.5c0-.175-.03-.344-.085-.5h.585A1.5 1.5 0 0 1 14 2.5v12a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-12A1.5 1.5 0 0 1 3.5 1Z"/>
 </svg>О сайте</a>
                 </li>
-                <li><a href="{%url 'article'%}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-clipboard2" viewBox="0 0 16 16">
+                <li class="headerLI"><a href="{%url 'article'%}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-clipboard2" viewBox="0 0 16 16">
   <path d="M3.5 2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5H12a.5.5 0 0 1 0-1h.5A1.5 1.5 0 0 1 14 2.5v12a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-12A1.5 1.5 0 0 1 3.5 1H4a.5.5 0 0 1 0 1h-.5Z"/>
   <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"/>
 </svg>Статьи</a></li>
-                <li><a href="{%url 'create'%}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-clipboard2-plus" viewBox="0 0 16 16">
+                {%if request.user.is_authenticated%}
+                <li class="headerLI"><a href="{%url 'create'%}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-clipboard2-plus" viewBox="0 0 16 16">
   <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
   <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
   <path d="M8.5 6.5a.5.5 0 0 0-1 0V8H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V9H10a.5.5 0 0 0 0-1H8.5V6.5Z"/>
 </svg>Добавить статью</a></li>
-                <li><a href="{%url 'auth'%}">
-                    Регистрация
-                </a></li>
+                <li class="headerLI">{{user.username}} | <a href="{% url 'logout' %}">Выйти</a></li>
+                {%else%}
+                <li class="headerLI"><a href="{%url 'register'%}">Регистрация | </a><a href="{%url 'login'%}">Авторизация</a>
+                 {%endif%}
+                </li>
             </ul>
         </div>
       </div>
@@ -38,13 +42,34 @@
         {%block content%}
         <h1>Главная страница</h1>
         {%endblock%}
+        <nav class="Small page navigation">
+            <ul class="pagination pagination-sm">
+                {%if page_obj.has_previous%}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{page_obj.previous_page_number}}">&lt;</a>
+                </li>
+                {%endif%}
+                {%for p in paginator.page_range%}
+                {%if p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{p}}">{{p}}</a>
+                </li>
+                {%endif%}
+                {%endfor%}
+                {%if page_obj.has_next%}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{page_obj.next_page_number}}">&lt;</a>
+                </li>
+                {%endif%}
+            </ul>
+        </nav>
     </main>
     <footer>
         <ul class="foot_ul">
-            <li><a href="https://vk.com/saveliy_kostenko">Страница VK</a></li>
-            <li><a href="https://t.me/j0kerm0t1337">Телеграмм</a></li>
-            <li><a href="https://spb.hh.ru/resume/c8c603b4ff0bb840c30039ed1f794c62553170">hh</a></li>
-            <li><a href="https://github.com/J0K3RM07/djsite">GitHub</a></li>
+            <li class="headerLI"><a href="https://vk.com/saveliy_kostenko">Страница VK</a></li>
+            <li class="headerLI"><a href="https://t.me/j0kerm0t1337">Телеграмм</a></li>
+            <li class="headerLI"><a href="https://spb.hh.ru/resume/c8c603b4ff0bb840c30039ed1f794c62553170">hh</a></li>
+            <li class="headerLI"><a href="https://github.com/J0K3RM07/djsite">GitHub</a></li>
         </ul>
     </footer>
 </body>

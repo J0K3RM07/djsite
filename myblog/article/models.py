@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 class article(models.Model):
     title = models.CharField('Название',max_length=50)
@@ -8,6 +9,8 @@ class article(models.Model):
     cat = models.ForeignKey('category', on_delete=models.PROTECT, null=True)
 
 
+    def get_absolute_url(self):
+        return reverse('auth')
 
     def __str__(self):
         return self.title
