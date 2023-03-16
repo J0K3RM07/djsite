@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'human.apps.HumanConfig',
     'article.apps.ArticleConfig',
     'authorization.apps.AuthorizationConfig',
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'myblog.urls'
@@ -133,3 +135,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'photo')
 MEDIA_URL = '/photo/'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'myblog.cache')
+    }
+}

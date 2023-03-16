@@ -44,6 +44,7 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('main')
 
+
 def logout_user(request):
     logout(request)
     return redirect('login')

@@ -26,8 +26,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('human.urls')),
     path('article/', include('article.urls')),
-    path('', include('authorization.urls'))
+    path('', include('authorization.urls')),
 ]
 
 if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
+
     urlpatterns += static(settings.MEDIA_URL, documents_root=settings.MEDIA_ROOT)
