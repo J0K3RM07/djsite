@@ -20,4 +20,4 @@ class SubMenu(models.Model):
         verbose_name_plural = 'Подменю'
 
     def __str__(self):
-        return self.name
+        return self.main_cat.name + ' -- ' + self.name
