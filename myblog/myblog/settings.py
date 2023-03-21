@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'article.apps.ArticleConfig',
     'authorization.apps.AuthorizationConfig',
     "debug_toolbar",
+    'rest_framework',
+    'drfsite.apps.DrfsiteConfig',
+    'uptrade.apps.UptradeConfig',
 ]
 
 MIDDLEWARE = [

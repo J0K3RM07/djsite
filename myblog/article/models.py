@@ -1,11 +1,12 @@
 from django.db import models
 from django.shortcuts import reverse
+from time import gmtime, strftime
 
 class article(models.Model):
     title = models.CharField('Название',max_length=50)
     anons = models.CharField('Анонс',max_length=150)
     content = models.TextField('Содержимое')
-    date = models.DateTimeField('Дата публикации')
+    date = models.DateTimeField('Дата публикации', default=strftime("%Y-%m-%d %H:%M:%S", gmtime()), blank=True)
     cat = models.ForeignKey('category', on_delete=models.PROTECT, null=True)
 
 

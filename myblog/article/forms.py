@@ -1,5 +1,7 @@
 from .models import article
-from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, SelectDateWidget, SplitDateTimeWidget
+from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, SelectDateWidget, SplitDateTimeWidget, \
+    DateTimeField
+
 
 class articleForm(ModelForm):
     class Meta:

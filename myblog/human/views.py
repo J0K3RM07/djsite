@@ -3,7 +3,6 @@ from django.http import HttpResponse, HttpResponseNotFound, Http404
 from .models import *
 
 
-
 def index(request):
     return render(request, 'human/mainpage.html',{'title': 'Главная страница'} )
 

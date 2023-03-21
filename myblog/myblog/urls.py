@@ -27,6 +27,8 @@ urlpatterns = [
     path('', include('human.urls')),
     path('article/', include('article.urls')),
     path('', include('authorization.urls')),
+    path('', include('drfsite.urls')),
+    path('', include('uptrade.urls'))
 ]
 
 if settings.DEBUG:

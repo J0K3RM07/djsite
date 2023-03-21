@@ -1,10 +1,15 @@
 from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
-
 from .models import article
 from .forms import articleForm
 from django.views.generic import DetailView, CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .serializers import articleSerializer
+from rest_framework import generics
+
+class articleAPIView(generics.ListAPIView):
+    queryset = article.objects.all( )
+    serializer_class = articleSerializer
 
 class create_article(LoginRequiredMixin, CreateView):
     form_class = articleForm
