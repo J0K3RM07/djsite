@@ -5,11 +5,18 @@ from .forms import articleForm
 from django.views.generic import DetailView, CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .serializers import articleSerializer
-from rest_framework import generics
+from rest_framework import generics, viewsets
 
-class articleAPIView(generics.ListAPIView):
-    queryset = article.objects.all( )
+
+# class articleAPIView(generics.ListCreateAPIView):
+#
+#     queryset = article.objects.all( )
+#     serializer_class = articleSerializer
+
+class articleViewSet(viewsets.ModelViewSet):
+    queryset = article.objects.all()
     serializer_class = articleSerializer
+
 
 class create_article(LoginRequiredMixin, CreateView):
     form_class = articleForm
